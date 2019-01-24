@@ -23,9 +23,9 @@ var app3 = new Vue({
     el: '#app-4',
     data: {
       todos: [
-        { text: '1' },
-        { text: '2' },
-        { text: '3' }
+        { text: 'I' },
+        { text: 'did' },
+        { text: 'it.' }
       ]
     }
   })
