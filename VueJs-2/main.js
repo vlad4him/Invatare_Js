@@ -12,9 +12,27 @@ var app2= new Vue({
     }
 })
 
-var app3= new Vue({
-    el:'#app-3',
+var app3 = new Vue({
+    el: '#app-3',
     data: {
-        product3: "So this is how it works."
+      seen: true
     }
-})
+  })
+
+  var app4 = new Vue({
+    el: '#app-4',
+    data: {
+      todos: [
+        { text: '1' },
+        { text: '2' },
+        { text: '3' }
+      ]
+    }
+  })
+
+  var example1 = new Vue({
+    el: '#example-1',
+    data: {
+      counter: 0
+    }
+  })

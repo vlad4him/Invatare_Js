@@ -17,8 +17,21 @@
     </div>
 
     
-  <div id="app-3">
-      <h1>{{ product3 }}</h1>
+    <div id="app-3">
+      <span v-if="seen">Now you see me</span>
+    </div>
+
+    <div id="app-4">
+      <ol>
+        <li v-for="todo in todos">
+          {{ todo.text }}
+        </li>
+      </ol>
+    </div>
+
+    <div id="example-1">
+      <button v-on:click="counter += 10">Add 1</button>
+      <p>The button can count from 0 to {{ counter }}.</p>
     </div>
 
 <script src="https://cdn.jsdelivr.net/npm/vue"></script>
