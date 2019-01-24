@@ -36,3 +36,12 @@ var app3 = new Vue({
       counter: 0
     }
   })
+
+  new Vue({
+    el: '#example-5',
+    methods: {
+      say: function (message) {
+        alert(message)
+      }
+    }
+  })
