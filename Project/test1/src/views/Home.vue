@@ -9,6 +9,10 @@
 
 <script>
 // @ is an alias to /src
+//title
+//vizualizari
+//link
+//comentu-ri
 import HelloWorld from '@/components/HelloWorld.vue'
 import fileBrowsing from '@/components/fileBrowsing.vue'
 
