@@ -1,8 +1,6 @@
 <template>
   <div>
-    <b-row>
-      <b-col> Header</b-col>
-    </b-row>
+    <Header />
     <b-row v-if="show">
       <b-col cols="3" v-for="(video, key) in videos" :key="key">
         <div v-html="video.iframe"></div>
@@ -15,32 +13,25 @@
   </b-collapse>
       </b-col>
     </b-row>
-    <b-row>
-      <b-col> Footer </b-col>
-    </b-row>
+    <Footer />
   </div>
 </template>
 
 <script>
-// @ is an alias to /src
-//title
-//vizualizari
-//link
-//comentu-ri
+import Header from "@/components/Header.vue";
+import Footer from "@/components/Footer.vue";
+
 
 export default {
   name: 'home',
   components: {
-  
+    Header,
+    Footer
   },
   data () {
     return ({ 
       show: true,
-      videos: [{
-        iframe: '<iframe width="560" height="315" src="https://www.youtube.com/embed/D7jlOyccgl8" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>',
-        title: 'The Ultimate Guide to Drawing Anime',
-        descr: `The Ultimate Guide you'll need for drawing Anime characters, fanarts or even your own original character`
-      }, {
+      videos: [ {
         iframe: '<iframe width="560" height="315" src="https://www.youtube.com/embed/SENWjQ08oO4" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>',
         title: 'Making Your Dream Game - Resource Drop #5 [Indie Game Development]',
         descr: 'Hey everyone! In this video we discuss 4 key questions which may lead you to having success in making your dream game. We\'re using an article from the lead developer of the Godot engine as inspiration for this video make sure to read it as it has many great points! I hope you find these game development tips useful! I really enjoy developing resource drop. These videos take quite a while to develop due to research, writing a script and all of the video editing so I hope you enjoy it! If you enjoyed my video consider supporting my Patreon: https://www.patreon.com/matthew_palaje'
