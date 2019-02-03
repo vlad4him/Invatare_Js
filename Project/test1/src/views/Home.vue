@@ -1,9 +1,9 @@
 <template>
   <div>
     <Header />
-    <b-row v-if="show">
+    <b-row  v-if="show">
       <b-col cols="3" v-for="(video, key) in videos" :key="key">
-        <div v-html="video.iframe"></div>
+        <div  v-html="video.iframe"></div>
         <div>{{video.title}}</div>
         <div><b-btn v-b-toggle.collapse2 class="m-1">Show more</b-btn></div>
          <b-collapse id="collapse2">
@@ -18,9 +18,8 @@
 </template>
 
 <script>
-import Header from "@/components/Header.vue";
-import Footer from "@/components/Footer.vue";
-
+import Header from '@/components/Header.vue'
+import Footer from '@/components/Footer.vue'
 
 export default {
   name: 'home',
@@ -29,7 +28,7 @@ export default {
     Footer
   },
   data () {
-    return ({ 
+    return ({
       show: true,
       videos: [ {
         iframe: '<iframe width="560" height="315" src="https://www.youtube.com/embed/SENWjQ08oO4" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>',
