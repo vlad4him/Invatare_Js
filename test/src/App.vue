@@ -1,40 +1,22 @@
-<template>
+npm <template>
   <div id="app">
-    <Todos v-bind:todos="todos" />
-  </div>
+  {{ info }}
+</div>
 </template>
 
 <script>
-import Todos from './components/Todos';
-
-export default {
-  
-  name: 'app',
-  components: {
-    Todos
-  },
-  data() {
+new Vue({
+  el: '#app',
+  data () {
     return {
-      todos: [
-        {
-          id: 1,
-          title: 'Todo one',
-          completed: false
-        },
-        {
-          id: 2,
-          title: 'Todo two',
-          completed: true
-        },
-        {
-          id: 3,
-          title: 'Todo three', 
-          completed: false 
-        }
-      ]
+      info: null
     }
+  },
+  mounted () {
+    axios.get('https://api.coindesk.com/v1/bpi/currentprice.json')
+      .then(response => (this.info = response))
   }
-}
+})
 </script>
 
 <style>
