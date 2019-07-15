@@ -1,19 +1,19 @@
 <template>
   <div>
-    <Header />
+    <Header/>
       <b-row  v-if="show">
       <b-col  v-for="(video, key) in videos" :key="key">
         <div  v-html="video.iframe"></div>
         <div >{{video.title}}</div>
-        <div><b-btn v-b-toggle.collapse2 class="m-1">Show more</b-btn></div>
-         <b-collapse id="collapse2">
+        <div><b-btn v-b-toggle.collapse class="m-1">Show more</b-btn></div>
+         <b-collapse id="collapse">
     <b-card>
       {{video.descr}}
     </b-card>
   </b-collapse>
       </b-col>
     </b-row>
-    <Footer />
+    <Footer/>
   </div>
 </template>
 
