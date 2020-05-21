@@ -1,4 +1,4 @@
-<template>
+<!--<template>
 <div>
     <b-row>
       <b-col> Footer </b-col>

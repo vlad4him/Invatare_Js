@@ -28,6 +28,16 @@ export default new Router({
       path: '/profile',
       name: 'profile',
       component: () => import(/* webpackChunkName: "profile" */ './views/Profile.vue')
+    },
+    {
+      path: '/upload',
+      name: 'upload',
+      component: () => import(/* webpackChunkName: "upload" */ './views/Upload.vue')
+    },
+    {
+      path: '/signup',
+      name: 'signup',
+      component: () => import(/* webpackChunkName: "upload" */ './views/SignUp.vue')
     }
   ]
 })

@@ -1,6 +1,6 @@
 <template>
   <div class="profile">
-    <Header/>
+    
     <b-row class="my-1">
       <b-col>
         <b-img :src="require('../views/download.jpg')" height="210"></b-img>

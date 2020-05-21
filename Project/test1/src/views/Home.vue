@@ -1,6 +1,7 @@
 <template>
   <div>
-    <Header/>
+    <input type="text" v-model="videosName" @keyup.enter="addVideo">
+    
       <b-row  v-if="show">
       <b-col  v-for="(video, key) in videos" :key="key">
         <div  v-html="video.iframe"></div>
@@ -22,6 +23,8 @@ import Header from '@/components/Header.vue'
 import Footer from '@/components/Footer.vue'
 import axios from 'axios'
 
+const baseURL = "https://online-database-dc0e3.firebaseio.com/"
+
 export default {
   name: 'home',
   components: {
@@ -31,30 +34,27 @@ export default {
   data () {
     return ({
       show: true,
-      videos: [] })
+      data: [],
+      videosName: '' })
   },
-  mounted () {
-    var self = this
-    console.log('==========')
-    console.log(this)
-    console.log('==========')
-    console.log('Before axiox')
-    axios.get('https://api.myjson.com/bins/xydd4')
-      .then(function (response) {
-        console.log(response)
-        console.log('===as da das d===')
-        console.log(self)
-        console.log('======asda dsa ds===')
-        self.videos = response.data
-      //  console.log("In axios")
-      })
-      .catch(function (error) {
-        console.log(error)
-      })
-  // console.log("After axios")
-    //  console.log("======= ========")
-    //  console.log(JSON.stringify(this.videos))
-    //  https://api.myjson.com/bins/xydd4
+  async created(){
+     
+    
+    try {
+      const res = await axios.get(baseURL)
+      this.videos = res.data;
+    } catch(e) {
+      console.error(e)
+    }
+  },
+   methods:{
+    async addVideo() {
+      const res = await axios.post(baseURL, { iframe: this.videosName })
+
+      this.videos = [...this.videos, res.data]
+
+      this.videosName = ''
+    }
   }
 }
 

@@ -1,37 +1,102 @@
 <template>
-  <b-container>
-    <b-row class="my-1">
-      <b-col lg="2" offset="3" class="mt-3">
-        <label class="float-left">Enter name:</label>
-      </b-col>
-      <b-col lg="4" class="mt-3">
-        <b-input v-model="text"></b-input>
-      </b-col>
-    </b-row>
-    <b-row class="my-1">
-      <b-col lg="2" offset="3" class="mt-3">
-        <label class="float-left">Enter password:</label>
-      </b-col>
-      <b-col lg="4" class="mt-3">
-        <b-input v-model="text"></b-input>
-      </b-col>
-    </b-row>
-    <b-row class="mt-4">
-      <b-col lg="4" offset-lg="5">
-        <b-button class="float-left w-25" variant="success">Login</b-button>
-        <b-link to="SignUp"><b-button class="float-right w-25" variant="success">Register</b-button></b-link>
-      </b-col>
-    </b-row>
-  </b-container>
+  <div id="signin">
+    <div class="signin-form">
+      <form @submit.prevent="onSubmit">
+        <div class="input">
+          <label for="email">Mail</label>
+          <input
+                  type="email"
+                  id="email"
+                  v-model="email">
+        </div>
+        <div class="input">
+          <label for="password">Password</label>
+          <input
+                  type="password"
+                  id="password"
+                  v-model="password">
+        </div>
+        <div class="submit">
+          <button type="submit">Submit</button>
+        </div>
+      </form>
+    </div>
+  </div>
 </template>
+
 <script>
-import Header from "@/components/Header.vue";
-import Footer from "@/components/Footer.vue";
-export default {
-  data() {
-    return {
-      types: ["email", "password"]
+  export default {
+    data () {
+      return {
+        email: '',
+        password: ''
+      }
+    },
+    methods: {
+      onSubmit () {
+        const formData = {
+          email: this.email,
+          password: this.password,
+        }
+        console.log(formData)
+      }
     }
   }
-}
 </script>
+
+<style scoped>
+  .signin-form {
+    width: 400px;
+    margin: 30px auto;
+    border: 1px solid #eee;
+    padding: 20px;
+    box-shadow: 0 2px 3px #ccc;
+  }
+
+  .input {
+    margin: 10px auto;
+  }
+
+  .input label {
+    display: block;
+    color: #4e4e4e;
+    margin-bottom: 6px;
+  }
+
+  .input input {
+    font: inherit;
+    width: 100%;
+    padding: 6px 12px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+  }
+
+  .input input:focus {
+    outline: none;
+    border: 1px solid #521751;
+    background-color: #eee;
+  }
+
+  .submit button {
+    border: 1px solid #521751;
+    color: #521751;
+    padding: 10px 20px;
+    font: inherit;
+    cursor: pointer;
+  }
+
+  .submit button:hover,
+  .submit button:active {
+    background-color: #521751;
+    color: white;
+  }
+
+  .submit button[disabled],
+  .submit button[disabled]:hover,
+  .submit button[disabled]:active {
+    border: 1px solid #ccc;
+    background-color: transparent;
+    color: #ccc;
+    cursor: not-allowed;
+  }
+</style>
